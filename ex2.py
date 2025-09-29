@@ -1,36 +1,27 @@
-class Midia:
-    def __init__(self, titulo, duracao_seg):
-        self.titulo = titulo
-        self.duracao_seg = duracao_seg
+class GraodeCafe:
+    def __init__(self):
+        pass
 
-    def exibir(self):
-        print(f'\nO titulo da midia é {self.titulo} e a duração é {self.duracao_seg} segundos')
+    def moer(self):
+        print('Os graos de café foram moidos.')
 
-class Musica(Midia):
-    def __init__(self, titulo, duracao_seg, artista):
-        super().__init__(titulo, duracao_seg, artista)
-        self.artista = artista
-    
-    def exibir(self):
-        print(f'\nO titulo da musica é {self.titulo} e a duração é {self.duracao_seg} segundos e o artista que a criou foi {self.artista}')
+class Agua:
+    def __init__(self):
+        pass
 
-class Video(Midia):
-    def __init__(self, titulo, duracao_seg, resolucao):
-        super().__init__(titulo, duracao_seg, resolucao)
-        self.resolucao = resolucao
+    def aquecer(self):
+        print("A agua está quente")
 
-    def exibir(self):
-        print(f'\nO titulo do video é {self.titulo} e a duração é {self.duracao_seg} segundos e o resolucao é {self.resolucao}')
+class Cafeteira:
+    def __init__(self):
+        self.agua = Agua
+        self.graodecafe = GraodeCafe
 
-musica = Musica("Tu", 156, "Katy")
-video = Video("Tutorial python 2025", 1800, "1500x1600")
+    def prepararCafe(self):
+        self.graodecafe.moer()
+        self.agua.aquecer()
+        print('seu café ta pronto')
 
-dicionario_midia = {"musicas":[], "videos":[]}
-dicionario_midia["musicas"].append(musica)
-dicionario_midia["videos"].append(video)
+cafe = Cafeteira()
 
-print(dicionario_midia)
-
-for item in dicionario_midia.values():
-    for midia in item:
-        midia.exibir()
+cafe.prepararCafe()
