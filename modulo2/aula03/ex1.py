@@ -1,26 +1,15 @@
-class Pessoa:
-    def __init__(self, nome, idade):
-        self.nome = nome
-        self.idade = idade
-    
-    def Apresentar(self):
-        print(f"\nOlá, meu nome é {self.nome} e tenho {self.idade} anos")
+class Motor:
+    def ligar_motor(self):
+        print(f'O carro está ligado.')
 
-class Estudante(Pessoa):
-    def __init__(self, nome, idade, matricula ):
-        super().__init__(nome, idade)
-        self.matricula = matricula
+class Carro:
+    def __init__(self):
+        self.motor = Motor()
 
-    def Apresentar(self):
-        print(f"\nOlá, meu nome é {self.nome} e tenho {self.idade} anos e minha matricula é {self.matricula}")
+    def ligar(self):
+        print('o motor está ligando')
+        self.motor.ligar_motor() 
 
-pessoa = Pessoa("Ana", "19")
-estudante = Estudante("Ana", "19", "976806")
+carro = Carro()
 
-pessoa.Apresentar()
-estudante.Apresentar()
-
-lista_objetos:list[Pessoa] = [pessoa, estudante]
-
-for objeto in lista_objetos:
-    objeto.Apresentar()
+Carro.ligar()
