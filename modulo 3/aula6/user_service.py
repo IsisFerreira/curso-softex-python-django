@@ -9,13 +9,25 @@ class UserService:
         """
         crie um atributo que receberá a UserModel como composição
         """
+        self.user_model = UserModel()
 
     def _safe_user_data(self, user) -> dict | None:
         """
         este é um método privado que recebe um usuarios do banco.
         verifique se o usuários existe e então retorne ele sem a sua senha
-        caso ele ão exista retorne None
+        caso ele não exista retorne None
         """
+        if user:
+            return{
+                'id':user['id'],
+                'email':user['email'],
+                'nome_completo':user['nome_completo'],
+                'perfil_acesso':user['perfil_acesso'],
+                'data_criacao':user['data_criacao'],
+                'data_atualizacao':user['data_atualizacao']
+            }
+        else:
+            return None
 
     def _is_authorized(
         self,
@@ -23,13 +35,22 @@ class UserService:
         current_user_profile: str,
         target_user_id: int,
         action: str,
-    ) -> bool:
+    ) -> bool:   
         """
         Método que verifica o perfil do usuários, se for Diretoria retorne true
         Se não tiver target_user_id retorn false
         Se  action == "edit_self" retorne current_user_id == target_user_id
         No geral retorn false
         """
+        if current_user_profile == 'Diretoria':
+            return True
+        if not target_user_id: 
+            return False
+        if action == "edit_self":
+            return{
+               current_user_id == target_user_id
+            }   
+        
 
     def register_user(
         self,
@@ -45,6 +66,7 @@ class UserService:
         O campo Nome deve ter apenas letras e não deve estar vazio, retorne False se não tiver e a mensagem de erro.
         Caso os campos atendas as requisições, faça o hash da senha e salve use o método create_user da User Model
         """
+
 
     def login_user(self, email: str, senha: str) -> tuple[dict | None, str]:
         """
