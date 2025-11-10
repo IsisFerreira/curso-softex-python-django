@@ -1,4 +1,9 @@
-vendas = [('Teclado', 50, 2), ('Mouse', 25.50, 4), ('Monitor', 300, 1), ('Fone', 45, 1), ('webcam', 75.20, 2)]
+vendas = [('Teclado', 50, 2), 
+          ('Mouse', 25.50, 4), 
+          ('Monitor', 300, 1), 
+          ('Fone', 45, 1), 
+          ('webcam', 75.20, 2)]
+
 vendas_acimade100 = list() # []
 produtos_unicos = set()
 
