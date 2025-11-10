@@ -1,5 +1,7 @@
-valor = int(input("Digite um numero"))
+senha_secreta = "python123"
+senha_digitada = input("Digite a senha: ")
 
-while valor != 0:
-    valor = valor -1
-    print(valor)
+if senha_digitada == senha_secreta:
+    print("Acesso concedido.")
+else:
+    print("Senha incorreta.")

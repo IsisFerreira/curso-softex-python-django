@@ -1,6 +1,10 @@
-valor = int(input("Digite um numero:"))
+num1 = int(input("Digite o primeiro número: "))
+num2 = int(input("Digite o segundo número: "))
 
-multiplicador = 1
-while multiplicador < 10:
-    multiplicador+= 1
-    print(valor * multiplicador)
+
+if num1 > num2:
+    print(f"O maior número é: {num1}")
+elif num1 < num2:
+    print(f"O maior número é: {num2}")
+else:
+    print("Os números são iguais.")

@@ -1,9 +1,6 @@
-contador = 1
-soma=0
 
-while contador <= 5:
-    contador += 1
-    valor = int(input("Digite um numero"))
-    soma = soma + valor
-
-print(soma)
+numero = int(input("Digite um número inteiro: "))
+if numero % 2 == 0:
+    print("O número é par.")
+else:
+    print("O número é ímpar.")
